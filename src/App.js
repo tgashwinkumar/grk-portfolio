@@ -1,10 +1,14 @@
+import AcademicBackground from "./pages/AcademicBackground";
+import AwardsHonors from "./pages/AwardsHonors";
+import Home from "./pages/Home";
 import "./styles/tailwind.output.css";
 
 const App = () => {
   return (
-    <div className="w-screen overflow-x-hidden min-h-screen">
-      <div className="w-1/2 bg-bone h-screen"></div>
-      <div className="w-1/2"></div>
+    <div className="w-fit h-fit overflow-hidden p-0 m-0 flex flex-col justify-start items-start">
+      <Home />
+      <AwardsHonors />
+      <AcademicBackground/>
     </div>
   );
 };
