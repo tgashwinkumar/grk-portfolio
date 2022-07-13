@@ -3,20 +3,18 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { BsFillTelephoneFill } from "react-icons/bs";
 
-const HomeImage1 = `https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`;
-const HomeImage2 = `https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`;
-const HomeImage3 = `https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`;
-const HomeImage4 = `https://images.unsplash.com/photo-1519124040388-0c8421105fe0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80`;
-const HomeImage5 = `https://images.unsplash.com/photo-1511629091441-ee46146481b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`;
-const HomeImage6 = `https://images.unsplash.com/photo-1630332458166-1c3bdde17665?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`;
+const HomeImage6 = `https://i.ibb.co/r5HsNRW/Copy-of-Adobe-Scan-May-24-2022-52-1.jpg`;
+const HomeImage4 = `https://i.ibb.co/xYtx7WL/image9.jpg`;
+const HomeImage2 = `https://i.ibb.co/Dz7Y9Zs/Adobe-Scan-May-24-2022-38-1.jpg`;
+const HomeImage3 = `https://i.ibb.co/71RHGMc/Adobe-Scan-May-09-2022-29-1.jpg`;
+const HomeImage5 = `https://i.ibb.co/gZg5m8y/Adobe-Scan-May-09-2022-16-1.jpg`;
+const HomeImage1 = `https://i.ibb.co/TKV4mHf/1524634848193.jpg`;
 
 const Home = () => {
-  const [hoverId, setHoverId] = useState(0);
-
   return (
-    <section className="w-full h-fit bg-bone overflow-x-hidden flex flex-row">
-      <main className="w-full min-h-screen px-8 flex-1">
-        <nav className="h-36 flex items-center space-x-8 px-2">
+    <section className="w-screen lg:w-full h-fit bg-bone overflow-x-hidden flex flex-col lg:flex-row">
+      <main className="w-full min-h-screen px-6 lg:px-8 flex-1">
+        <nav className="h-fit pt-12 lg:h-36 flex items-center space-x-8 lg:px-2 w-full">
           <button className="box-border transition-all duration-75 hover:border-b-2 border-b-black cursor-pointer uppercase font-lato text-lg">
             Bio
           </button>
@@ -35,66 +33,33 @@ const Home = () => {
           Dr. G R Karpagam
         </h1>
         <h2 className="text-lg ont-lato mt-4 uppercase">
-          Professor & Associate Head - CSE
+          Professor - CSE, HEAD - Library
         </h2>
 
         <div className="mt-12 flex items-center space-x-6 ">
-          <button
-            onMouseOver={(e) => {
-              e.preventDefault();
-              setHoverId(1);
-            }}
-            onMouseLeave={(e) => {
-              e.preventDefault();
-              setHoverId(0);
-            }}
-          >
+          <button>
             <FaLinkedinIn
-              className={`h-8 w-8 transition-all duration-75 delay-100 ${
-                hoverId === 0 || hoverId === 1 ? "text-black" : "text-smoke"
-              }`}
+              className={`h-8 w-8 transition-all duration-75 delay-100 hover:-translate-y-1 ease-in-out`}
             />
           </button>
-          <button
-            onMouseOver={(e) => {
-              e.preventDefault();
-              setHoverId(2);
-            }}
-            onMouseLeave={(e) => {
-              e.preventDefault();
-              setHoverId(0);
-            }}
-          >
+          <button>
             <SiGmail
-              className={`h-8 w-8 transition-all duration-75 delay-100 ${
-                hoverId === 0 || hoverId === 2 ? "text-black" : "text-smoke"
-              }`}
+              className={`h-8 w-8 transition-all duration-75 delay-100  hover:-translate-y-1 ease-in-out`}
             />
           </button>
-          <button
-            onMouseOver={(e) => {
-              e.preventDefault();
-              setHoverId(3);
-            }}
-            onMouseLeave={(e) => {
-              e.preventDefault();
-              setHoverId(0);
-            }}
-          >
+          <button>
             <BsFillTelephoneFill
-              className={`h-6 w-6 transition-all duration-75 delay-100 ${
-                hoverId === 0 || hoverId === 3 ? "text-black" : "text-smoke"
-              }`}
+              className={`h-6 w-6 transition-all duration-75 delay-100  hover:-translate-y-1 ease-in-out`}
             />
           </button>
         </div>
 
-        <div className="pt-36 pb-24 items-center">
+        <div className="pt-36 pb-24 items-center w-full">
           <h2 className="font-playfair text-4xl font-medium">
             Biographical Sketch
           </h2>
 
-          <p className="font-lato  pr-16 text-justify mt-12">
+          <p className="font-lato  lg:pr-16 text-justify mt-12 w-full">
             &emsp;&emsp;&emsp;<b>G R Karpagam is a Professor</b> with 25 years
             of experience in Department of Computer Science and Engineering at
             PSG College of Technology. Karpagam received her Bachelors, Masters
@@ -120,7 +85,7 @@ const Home = () => {
           </p>
         </div>
       </main>
-      <div className="w-[50vw] h-screen">
+      <div className="w-full lg:w-[50vw] h-screen hidden lg:block">
         <ImageSection />
       </div>
     </section>
@@ -139,7 +104,7 @@ const ImageSection = () => {
             style={{
               background: `url(${HomeImage1})`,
               backgroundSize: "cover",
-              backgroundPosition: "50% 20%",
+              backgroundPosition: "0% 50%",
               backgroundRepeat: "no-repeat",
             }}
           ></div>
@@ -148,18 +113,18 @@ const ImageSection = () => {
           <div
             className="h-1/2 w-full filter grayscale"
             style={{
-              background: `url(${HomeImage4})`,
+              background: `url(${HomeImage2})`,
               backgroundSize: "cover",
-              backgroundPosition: "50% 50%",
+              backgroundPosition: "0% 50%",
               backgroundRepeat: "no-repeat",
             }}
           ></div>
           <div
             className="h-1/2 w-full filter grayscale"
             style={{
-              background: `url(${HomeImage6})`,
+              background: `url(${HomeImage3})`,
               backgroundSize: "cover",
-              backgroundPosition: "50% 50%",
+              backgroundPosition: "30% 50%",
               backgroundRepeat: "no-repeat",
             }}
           ></div>
@@ -169,16 +134,16 @@ const ImageSection = () => {
         <div
           className="w-5/12 filter grayscale"
           style={{
-            background: `url(${HomeImage2})`,
+            background: `url(${HomeImage4})`,
             backgroundSize: "cover",
-            backgroundPosition: "50% 50%",
+            backgroundPosition: "50% 20%",
             backgroundRepeat: "no-repeat",
           }}
         ></div>
         <div
           className="w-4/12 filter grayscale"
           style={{
-            background: `url(${HomeImage3})`,
+            background: `url(${HomeImage5})`,
             backgroundSize: "cover",
             backgroundPosition: "50% 50%",
             backgroundRepeat: "no-repeat",
@@ -187,9 +152,9 @@ const ImageSection = () => {
         <div
           className="w-3/12 filter grayscale"
           style={{
-            background: `url(${HomeImage5})`,
+            background: `url(${HomeImage6})`,
             backgroundSize: "cover",
-            backgroundPosition: "50% 50%",
+            backgroundPosition: "100% 50%",
             backgroundRepeat: "no-repeat",
           }}
         ></div>

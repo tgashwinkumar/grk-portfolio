@@ -2,13 +2,13 @@ import React from "react";
 
 const AcademicBackground = () => {
   return (
-    <section className="w-full h-full overflow-x-hidden bg-bone px-8 py-12 flex flex-col m-0">
-      <h2 className="font-playfair text-4xl font-medium w-[50vw] mb-12">
+    <section className="w-full h-full overflow-x-hidden bg-bone px-8 py-12 flex flex-col lg:flex-row m-0">
+      <h2 className="font-playfair text-4xl font-medium lg:w-1/3 mb-12">
         Academic Background
       </h2>
-      <main className="flex flex-row">
-        <div className="w-1/4"></div>
-        <div className="w-3/4 grid grid-cols-3 space-x-6">
+      <main className="flex flex-col lg:flex-row lg:w-2/3">
+        {/* <div className="w-1/4"></div> */}
+        <div className="w-full  grid grid-cols-1 lg:grid-cols-3 space-y-6 lg:space-y-0 lg:space-x-6">
           <AlmamaterText
             text={"Bachelor of Engineering (Computer Science and Engineering)"}
             subtext="Kongu Engineering College, Bharathiar University"
