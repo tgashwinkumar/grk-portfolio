@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import BioJSON from "../json/Bio/index.json"
 
 const HomeImage6 = `https://i.ibb.co/r5HsNRW/Copy-of-Adobe-Scan-May-24-2022-52-1.jpg`;
 const HomeImage4 = `https://i.ibb.co/xYtx7WL/image9.jpg`;
@@ -9,6 +10,8 @@ const HomeImage2 = `https://i.ibb.co/Dz7Y9Zs/Adobe-Scan-May-24-2022-38-1.jpg`;
 const HomeImage3 = `https://i.ibb.co/71RHGMc/Adobe-Scan-May-09-2022-29-1.jpg`;
 const HomeImage5 = `https://i.ibb.co/gZg5m8y/Adobe-Scan-May-09-2022-16-1.jpg`;
 const HomeImage1 = `https://i.ibb.co/TKV4mHf/1524634848193.jpg`;
+
+
 
 const Home = () => {
   return (
@@ -56,32 +59,11 @@ const Home = () => {
 
         <div className="pt-36 pb-24 items-center w-full">
           <h2 className="font-playfair text-4xl font-medium">
-            Biographical Sketch
+            {BioJSON?.title}
           </h2>
 
           <p className="font-lato  lg:pr-16 text-justify mt-12 w-full">
-            &emsp;&emsp;&emsp;<b>G R Karpagam is a Professor</b> with 25 years
-            of experience in Department of Computer Science and Engineering at
-            PSG College of Technology. Karpagam received her Bachelors, Masters
-            and PhD degree in Computer Science and Engineering. Her research
-            interest includes areas related to Artificial Intelligence, Machine
-            Learning, Service Oriented Architecture and Blockchain. She has
-            established 6 state of Art Laboratories in her research field
-            through Government and private industry funding. She is a recipient
-            of{" "}
-            <b>
-              CMI level 5 award (Management and Leadership) and PSG & Sons
-              Teacher of the Year Award
-            </b>
-            . She is a{" "}
-            <b>
-              conferred with senior membership in IEEE, Women in Engineering,
-              Consultant and Computer Society
-            </b>
-            . She also holds her professional membership in ACM, Indian Society
-            for Technical Education and IE Institution of Engineers. She was
-            instrumental in bringing the new Programme<b> BE CSE (AI and ML)</b>
-            .
+            &emsp;&emsp;&emsp;{BioJSON?.body}
           </p>
         </div>
       </main>

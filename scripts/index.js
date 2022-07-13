@@ -3,7 +3,7 @@ const fs = require("fs");
 
 const CWD = process.cwd();
 const MARKDOWN_ROUTE = `${CWD}/markdown`;
-const JSON_ROUTE = `${CWD}/json`;
+const JSON_ROUTE = `${CWD}/src/json`;
 
 const getDirectories = (source) =>
   fs
@@ -12,19 +12,21 @@ const getDirectories = (source) =>
     .map((dirent) => dirent.name);
 
 const resolveBio = () => {
-    if(fs.existsSync(`${MARKDOWN_ROUTE}/Bio/index.md`)){
-        const bio = fs.readFileSync(`${MARKDOWN_ROUTE}/Bio/index.md`, "utf8");
-        const result = md2json.parse(bio);
-        const head2 = Object.keys(result['Bio']);
-        fs.writeFileSync(`${JSON_ROUTE}/Bio/index.json`, JSON.stringify({
-            title: head2,
-            body: result['Bio'][head2]['raw']
-        }));
-
-    }else{
-        throw new Error("Bio file not found");
-    }
-}
+  if (fs.existsSync(`${MARKDOWN_ROUTE}/Bio/index.md`)) {
+    const bio = fs.readFileSync(`${MARKDOWN_ROUTE}/Bio/index.md`, "utf8");
+    const result = md2json.parse(bio);
+    const head2 = Object.keys(result["Bio"]);
+    fs.writeFileSync(
+      `${JSON_ROUTE}/Bio/index.json`,
+      JSON.stringify({
+        title: head2[0],
+        body: result["Bio"][head2[0]]["raw"],
+      })
+    );
+  } else {
+    throw new Error("Bio file not found");
+  }
+};
 
 const createJSONRouteStructure = () => {
   fs.existsSync(JSON_ROUTE) || fs.mkdirSync(JSON_ROUTE);
@@ -36,6 +38,7 @@ const createJSONRouteStructure = () => {
       tagline: "Professor - CSE, Head - Library",
       linkedin: "https://www.linkedin.com/in/g-r-karpagam-rangaraju-68ab8353/",
       mail: "grk.cse@psgtech.ac.in",
+      insta: "",
       phone: "+91 98948 64081",
       menuList: menuList,
     })

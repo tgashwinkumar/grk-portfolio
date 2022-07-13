@@ -1,6 +1,7 @@
 import React from "react";
 import {AiFillInstagram, AiFillLinkedin} from "react-icons/ai";
 import { BsFillEnvelopeFill, BsTelephone } from "react-icons/bs";
+import ConfigJSON from "../json/index.json"
 
 const Footer = () => {
   return (
@@ -16,9 +17,9 @@ const Footer = () => {
               <AiFillLinkedin />
             </p>
             <div className="">
-              <p className="font-lato text-lg">
+              <a href={ConfigJSON.linkedin} className="font-lato text-lg">
                 Linkedin
-              </p>
+              </a>
             </div>
           </div>
           <div className="flex space-x-4 items-center justify-start text-white text-lg w-full px-4 py-2">
@@ -40,13 +41,13 @@ const Footer = () => {
             </p>
             <div className="">
               <a
-                href="https://www.linkedin.com/in/g-r-karpagam-rangaraju-68ab8353/"
+                href={`mailto:${ConfigJSON.mail}`}
                 className="font-lato text-sm"
               >
                 Mail
               </a>
               <p className="font-bold font-lato text-lg">
-                grk.cse@psgtech.ac.in
+                {ConfigJSON.mail}
               </p>
             </div>
           </div>
