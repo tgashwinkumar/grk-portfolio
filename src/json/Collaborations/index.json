@@ -1,22 +1,16 @@
 [
   {
+    "name": "PSG CORDYS Cloud Computing Laboratory",
     "role": "Coordinator",
-    "outcome": "Modernization of Open Source Laboratory established in 2005 funded by Cognizant, Chennai, 2006",
-    "mou": "PSGTECH- Cognizant"
+    "image": "https://i.ibb.co/X7dY3CR/Adobe-Scan-May-24-2022-34-1.jpg",
+    "date": "17.02.2010",
+    "body": "PSG College of Technology which is one among the pioneers in Engineering education in our country signs a Memorandum of Understanding (MoU) with Cordys, the global provider of software for business process innovation and Enterprise Cloud Orchestration, Headquartered in the Netherlands. As a result Cordys have collaboratively setup a Computing Lab entitled “PSG-CORDYS SOA and Cloud Computing Laboratory” at Department of Computer Science and Engineering and was inaugurated by Dr.R.Rudramoorthy Principal PSG College of Technology on 17th Feb 2010 @ 9am."
   },
   {
+    "name": "PSG - Cordys Service Oriented Architecture Laboratory",
     "role": "Coordinator",
-    "outcome": "PSG-CORDYS Service Oriented Architecture Laboratory funded by Cordys, Hyderabad, 2008",
-    "mou": "PSGTECH - Cordys"
-  },
-  {
-    "role": "Coordinator",
-    "outcome": "PSG-CORDYS Cloud computing Laboratory funded by Cordys India Coimbatore, 2010",
-    "mou": "PSGTECH - Cordys"
-  },
-  {
-    "role": "Coordinator",
-    "outcome": "PSG-Impiger Artificial Intelligence Research Laboratory,2018",
-    "mou": "PSGTECH - Impiger"
+    "image": "https://i.ibb.co/PWWVSjk/Adobe-Scan-May-24-2022-22-1.jpg",
+    "date": "08.08.2007",
+    "body": "PSG College of Technology which is one among the pioneers in Engineering education in our country and Cordys, Hyderabad, the fastest growing BPMS, multinational company span over 5 countries are coming together to nurture Business Process Management Suite (BPMS) and Service Oriented Architecture (SOA) to the academic community. A Memorandum of Understanding is signed between these two iconic organizations on 8.8.2007 at the premises of PSG College of Technology Coimbatore. PSG College of Technology will setup a Computing Lab entitled “PSG-CORDYS SOA Laboratory” at Department of Computer Science and Engineering. Under this collaboration, the lab is to be equipped with State of art Hardware and Software product of CORDYS."
   }
 ]

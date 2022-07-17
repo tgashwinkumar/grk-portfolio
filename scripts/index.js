@@ -30,10 +30,18 @@ const resolveBooks = () => {
 };
 
 const resolveCollaborations = () => {
-  if (fs.existsSync(`${TEMPLATE_ROUTE}/Collaborations.yaml`)) {
-    const collaborations = yamljs.parse(
-      fs.readFileSync(`${TEMPLATE_ROUTE}/Collaborations.yaml`, "utf8")
-    );
+  if (fs.existsSync(`${TEMPLATE_ROUTE}/Collaborations`)) {
+    const collaborations = fs
+      .readdirSync(`${TEMPLATE_ROUTE}/Collaborations`, { withFileTypes: true })
+      .filter((dirent) => !dirent.name.startsWith("index"))
+      .map((dirent) =>
+        yamljs.parse(
+          fs.readFileSync(
+            `${TEMPLATE_ROUTE}/Collaborations/${dirent.name}`,
+            "utf8"
+          )
+        )
+      );
     fs.writeFileSync(
       `${JSON_ROUTE}/Collaborations/index.json`,
       JSON.stringify(collaborations)

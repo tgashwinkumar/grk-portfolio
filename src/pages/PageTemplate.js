@@ -7,7 +7,7 @@ const PageTemplate = ({ heading, children }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", () =>
-      window.scrollY >= 150 ? setIsAtTop(false) : setIsAtTop(true)
+      window.scrollY >= 20 ? setIsAtTop(false) : setIsAtTop(true)
     );
   });
 
@@ -16,20 +16,20 @@ const PageTemplate = ({ heading, children }) => {
       <header
         className={`${
           isAtTop ? "h-48 items-end" : "h-16 items-center"
-        } duration-500 ease-in-out flex justify-start fixed top-0 w-full px-6 lg:px-[calc(100vw/12)] bg-black py-6 text-white transition-all`}
+        } z-30 duration-500 ease-in-out flex justify-start fixed top-0 w-full px-6 lg:px-[calc(100vw/12)] bg-black py-6 text-white transition-all`}
       >
         <div
-          className={`h-16 absolute top-0 left-0 lg:px-[calc(100vw/12)] flex w-full justify-between items-center`}
+          className={`h-16 absolute top-0 left-0 px-6 lg:px-[calc(100vw/12)] flex w-full justify-between items-center`}
         >
           <p
             className={`${
               isAtTop ? "opacity-100" : "opacity-0 "
-            } transition-all duration-500 ease-in-out text-white font-playfair text-2xl`}
+            } transition-all duration-500 ease-in-out text-white font-playfair text-2xl hidden lg:block`}
           >
             Dr. G R Karpagam
           </p>
           <Link to="/">
-            <button className="font-lao flex items-center justify-center space-x-2 text-white text-base transition-all hover:border-b border-dashed border-white pb-1">
+            <button className="font-lato flex items-center justify-center space-x-2 text-white text-base transition-all hover:border-b border-dashed border-white pb-1">
               <AiFillHome className="text-lg"/>
               <p className="text-sm">Back To Home</p>
             </button>{" "}
