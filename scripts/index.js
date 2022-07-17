@@ -1,45 +1,63 @@
-const md2json = require("md-2-json");
+const yamljs = require("yamljs");
 const fs = require("fs");
 
 const CWD = process.cwd();
-const MARKDOWN_ROUTE = `${CWD}/markdown`;
+const TEMPLATE_ROUTE = `${CWD}/template`;
 const JSON_ROUTE = `${CWD}/src/json`;
 
-const getDirectories = (source) =>
-  fs
-    .readdirSync(source, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
-
 const resolveBio = () => {
-  if (fs.existsSync(`${MARKDOWN_ROUTE}/Bio/index.md`)) {
-    const bio = fs.readFileSync(`${MARKDOWN_ROUTE}/Bio/index.md`, "utf8");
-    const result = md2json.parse(bio);
-    const head2 = Object.keys(result["Bio"]);
-    fs.writeFileSync(
-      `${JSON_ROUTE}/Bio/index.json`,
-      JSON.stringify({
-        title: head2[0],
-        body: result["Bio"][head2[0]]["raw"],
-      })
-    );
+  if (fs.existsSync(`${TEMPLATE_ROUTE}/Bio.yaml`)) {
+    const bio = fs.readFileSync(`${TEMPLATE_ROUTE}/Bio.yaml`, "utf8");
+    const result = yamljs.parse(bio);
+    fs.writeFileSync(`${JSON_ROUTE}/Bio/index.json`, JSON.stringify(result));
   } else {
     throw new Error("Bio file not found");
   }
 };
 
+const resolveBooks = () => {
+  if (fs.existsSync(`${TEMPLATE_ROUTE}/Books.yaml`)) {
+    const bookList = yamljs.parse(
+      fs.readFileSync(`${TEMPLATE_ROUTE}/Books.yaml`, "utf8")
+    );
+    fs.writeFileSync(
+      `${JSON_ROUTE}/Books/index.json`,
+      JSON.stringify(bookList)
+    );
+  } else {
+    throw new Error(`"${TEMPLATE_ROUTE}/Books.yaml" file not found`);
+  }
+};
+
+const resolveCollaborations = () => {
+  if (fs.existsSync(`${TEMPLATE_ROUTE}/Collaborations.yaml`)) {
+    const collaborations = yamljs.parse(
+      fs.readFileSync(`${TEMPLATE_ROUTE}/Collaborations.yaml`, "utf8")
+    );
+    fs.writeFileSync(
+      `${JSON_ROUTE}/Collaborations/index.json`,
+      JSON.stringify(collaborations)
+    );
+  } else {
+    throw new Error(`"${TEMPLATE_ROUTE}/Collaborations.yaml" file not found`);
+  }
+};
+
 const createJSONRouteStructure = () => {
-  fs.existsSync(JSON_ROUTE) || fs.mkdirSync(JSON_ROUTE);
-  const menuList = getDirectories(MARKDOWN_ROUTE);
+  if (fs.existsSync(JSON_ROUTE))
+    fs.rmSync(JSON_ROUTE, { recursive: true, force: true });
+  fs.mkdirSync(JSON_ROUTE);
+  const menuList = fs
+    .readdirSync(TEMPLATE_ROUTE, { withFileTypes: true })
+    .filter((dirent) => !dirent.name.startsWith("index"))
+    .map((dirent) => dirent.name.replace(/\.[^/.]+$/, ""));
+  const indexResult = yamljs.parse(
+    fs.readFileSync(`${TEMPLATE_ROUTE}/index.yaml`, "utf8")
+  );
   fs.writeFileSync(
     `${JSON_ROUTE}/index.json`,
     JSON.stringify({
-      name: "Dr. G R Karpagam",
-      tagline: "Professor - CSE, Head - Library",
-      linkedin: "https://www.linkedin.com/in/g-r-karpagam-rangaraju-68ab8353/",
-      mail: "grk.cse@psgtech.ac.in",
-      insta: "",
-      phone: "+91 98948 64081",
+      ...indexResult,
       menuList: menuList,
     })
   );
@@ -51,3 +69,5 @@ const createJSONRouteStructure = () => {
 
 createJSONRouteStructure();
 resolveBio();
+resolveBooks();
+resolveCollaborations();

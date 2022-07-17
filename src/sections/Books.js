@@ -1,43 +1,22 @@
 import React from "react";
-
+import BookList from "../json/Books/index.json";
 const Books = () => {
   return (
-    <section className="w-screen h-full overflow-x-hidden px-8 py-12 bg-bone m-0 flex flex-col lg:flex-row">
-      
-        <h2 className="font-playfair text-4xl font-medium w-full lg:w-1/3 mb-12">
-          Books
-        </h2>
-        <main className="flex flex-col lg:flex-row w-full lg:w-2/3">
-          <div className="w-full gap-y-8 grid grid-cols-1 lg:grid-cols-2 ">
+    <section id="books" className="w-screen h-full overflow-x-hidden px-8 py-12 bg-bone m-0 flex flex-col lg:flex-row">
+      <h2 className="font-playfair text-4xl font-medium w-full lg:w-1/3 mb-12">
+        Books
+      </h2>
+      <main className="flex flex-col lg:flex-row w-full lg:w-2/3">
+        <div className="w-full gap-y-8 grid grid-cols-1 lg:grid-cols-2 ">
+          {BookList.map((book) => (
             <BookItem
-              link={
-                "https://www.amazon.in/Smart-Cyber-Physical-Systems-Opportunities-ebook/dp/B08MW9YCMY"
-              }
-              heading={
-                "Smart Cyber Physical Systems: Advances, Challenges and Opportunities (CRC Press - 2021)"
-              }
-              image="https://m.media-amazon.com/images/I/51HG9tTkGjL._SY346_.jpg"
+              link={book.link}
+              heading={book.title}
+              image={book.image}
             />
-            <BookItem
-              link={
-                "https://www.amazon.in/Algorithms-Applications-Processing-Computational-Intelligence-ebook/dp/B082HFH86X"
-              }
-              heading={
-                "Recent Advances on Memetic Algorithms and its Applications in Image Processing (Springer - Studies in Computational Intelligence Book 873) 1st ed. 2020 Edition"
-              }
-              image="https://m.media-amazon.com/images/I/51w75v6bmsL._SY346_.jpg"
-            />
-            <BookItem
-              link={
-                "https://www.amazon.com/Computing-Paradigms-Smart-Healthcare-Vinoth/dp/1536186198"
-              }
-              heading={
-                "Computing Paradigms for Smart Healthcare (Nova Science Publishers)"
-              }
-              image="https://images-na.ssl-images-amazon.com/images/I/41KBJAbzEZL._SX314_BO1,204,203,200_.jpg"
-            />
-          </div>
-        </main>
+          ))}
+        </div>
+      </main>
     </section>
   );
 };
